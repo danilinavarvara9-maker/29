@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Памятка: дроби</title>
+<!-- Шрифт Nunito (fontsource CDN) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/nunito@5.0.6/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/nunito@5.0.6/700.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/nunito@5.0.6/900.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{min-height:100%;font-family:'Nunito','Arial Rounded MT Bold','Segoe UI',sans-serif}
+body{
+  background-color:#123a5c;
+  background-image:
+    radial-gradient(ellipse 50% 18% at 15% 16%, rgba(255,255,255,.20), transparent 70%),
+    radial-gradient(ellipse 40% 14% at 75% 8%, rgba(255,255,255,.16), transparent 70%),
+    radial-gradient(ellipse 34% 12% at 55% 26%, rgba(255,255,255,.12), transparent 70%),
+    linear-gradient(180deg,#2a6db4 0%,#1b4a75 35%,#123a5c 70%,#0c2c49 100%);
+  background-attachment:fixed;color:#fff;padding:0 8px 50px;overflow-x:hidden;
+}
+body::before{content:'';position:fixed;inset:0;background:linear-gradient(180deg,rgba(8,25,45,.35) 0%,rgba(8,25,45,.10) 40%,rgba(8,25,45,.45) 100%);pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:2;max-width:1000px;margin:0 auto;padding-top:22px}
+
+header{text-align:center;padding:0 10px 16px}
+header h1{display:inline-block;font-size:clamp(24px,4.4vw,44px);font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#fff;
+  background:rgba(10,30,55,.74);padding:10px 34px;border-radius:70px;border:3px solid rgba(255,255,255,.4);
+  box-shadow:0 10px 26px rgba(0,0,0,.45);text-shadow:0 3px 6px rgba(0,0,0,.55)}
+.printbtn{font-family:inherit;font-size:17px;font-weight:900;text-transform:uppercase;letter-spacing:1px;border:none;border-radius:50px;
+  padding:11px 26px;margin-top:12px;cursor:pointer;color:#23411c;background:linear-gradient(180deg,#ffe066,#ffb703);
+  box-shadow:0 6px 0 #b07908, 0 10px 16px rgba(0,0,0,.4);transition:transform .12s, box-shadow .12s}
+.printbtn:hover{transform:translateY(-2px);box-shadow:0 8px 0 #b07908, 0 14px 20px rgba(0,0,0,.45)}
+.printbtn:active{transform:translateY(2px);box-shadow:0 2px 0 #b07908}
+
+/* лист-тетрадь */
+.paper{position:relative;border-radius:8px;color:#1c3557;font-weight:700;padding:26px 26px 22px 74px;
+  background-color:#fbfaf2;
+  background-image:linear-gradient(rgba(93,140,196,.28) 1px, transparent 1px),linear-gradient(90deg, rgba(93,140,196,.28) 1px, transparent 1px);
+  background-size:26px 26px;
+  box-shadow:0 26px 55px rgba(0,0,0,.55), inset 0 0 70px rgba(160,150,110,.16), inset 3px 3px 16px rgba(120,110,80,.12);
+  transform:rotate(-.4deg)}
+.paper::before{content:'';position:absolute;top:0;bottom:0;left:52px;width:3px;background:rgba(216,62,62,.65);pointer-events:none}
+.paper::after{content:'';position:absolute;inset:0;pointer-events:none;border-radius:8px;
+  background:linear-gradient(115deg,transparent 60%,rgba(0,0,0,.045) 61%,transparent 63%),linear-gradient(245deg,transparent 78%,rgba(0,0,0,.04) 79%,transparent 82%)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+.mini{border-radius:14px;background:rgba(255,255,255,.82);padding:12px 14px;border:3px solid var(--c,#4a76b5);box-shadow:0 4px 10px rgba(20,53,94,.12)}
+.mini h2{font-size:19px;font-weight:900;color:var(--c,#14355e);margin:0 0 8px;display:flex;align-items:center;gap:8px;line-height:1.2}
+.mini h2 .ico{font-size:24px;line-height:1}
+.mini p{font-size:16.5px;font-weight:700;color:#16304f;line-height:1.45;margin:0 0 7px}
+.mini p b{color:var(--c,#14355e)}
+.ex{background:#fff8dd;border:2px dashed rgba(176,121,8,.55);border-radius:10px;padding:6px 10px;font-weight:900;font-size:16.5px;color:#4a3200;line-height:1.5}
+.ex .fraction{font-size:1.05em}
+
+/* дробь */
+.fraction{display:inline-flex;flex-direction:column;align-items:center;font-weight:900;font-size:1.1em;line-height:1.05;color:#0f3d6e;vertical-align:middle;
+  background:rgba(255,255,255,.85);padding:2px 9px;border-radius:8px;border:2px solid rgba(93,140,196,.45)}
+.fraction .num{padding:0 6px;border-bottom:3px solid currentColor}
+.fraction .den{padding:0 6px}
+.fraction.g{color:#1d6b34;border-color:rgba(46,158,79,.5)}
+.fraction.r{color:#a02428;border-color:rgba(229,72,77,.5)}
+
+/* схема дроби с подписями */
+.schema{display:flex;align-items:center;gap:12px;margin:4px 0 8px;flex-wrap:wrap}
+.schema .lbl{font-size:14px;font-weight:900;color:#0f3d6e;background:rgba(255,255,255,.85);border:2px solid rgba(93,140,196,.45);border-radius:8px;padding:2px 8px}
+.schema .fraction{font-size:30px}
+
+/* нижняя строка-итог */
+.total{margin-top:14px;border:4px solid #14355e;border-radius:14px;background:#14355e;color:#fff;padding:10px 16px;
+  display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;font-size:19px;font-weight:900}
+.total .fraction{color:#ffd23f;border-color:rgba(255,210,63,.6);background:rgba(255,255,255,.08)}
+.total .fraction .num{border-bottom-color:#ffd23f}
+
+footer{text-align:center;margin-top:16px;font-size:15px;font-weight:800;color:#cfe3f7}
+
+@media (max-width:640px){
+  .paper{padding:20px 14px 18px 52px}
+  .paper::before{left:36px}
+  .mini p,.ex{font-size:15.5px}
+  .mini h2{font-size:17.5px}
+}
+@media print{
+  body{background:#fff;padding:0}
+  body::before{display:none}
+  .wrap{max-width:none;padding-top:0}
+  .printbtn,footer{display:none}
+  .paper{box-shadow:none;transform:none;border:2px solid #9aa8bd}
+  .mini{box-shadow:none;break-inside:avoid}
+  header h1{background:none;color:#14355e;border-color:#14355e;text-shadow:none;box-shadow:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>🍰 Дроби · памятка</h1><br>
+    <button class="printbtn" onclick="window.print()">🖨️ Печать</button>
+  </header>
+
+  <div class="paper">
+    <div class="grid">
+
+      <!-- 1. ЧТО ТАКОЕ ДРОБЬ -->
+      <div class="mini" style="--c:#1565c0">
+        <h2><span class="ico">🧩</span>Что такое дробь</h2>
+        <p>Целое делим на <b>равные части</b>. Дробь показывает, сколько таких частей взяли.</p>
+        <div class="schema">
+          <span class="fraction"><span class="num">3</span><span class="den">4</span></span>
+          <span class="lbl">↑ числитель — сколько взяли</span>
+          <span class="lbl">↓ знаменатель — на сколько частей делили</span>
+        </div>
+        <div class="ex">Торт разрезали на 8 кусков, взяли 3 → <span class="fraction"><span class="num">3</span><span class="den">8</span></span> торта.</div>
+      </div>
+
+      <!-- 2. МЕНЬШЕЕ НА БОЛЬШЕЕ -->
+      <div class="mini" style="--c:#0a7d36">
+        <h2><span class="ico">➗</span>Меньшее делим на большее</h2>
+        <p>Если делимое меньше делителя, целое не получится — ответ записываем <b>дробью</b>:</p>
+        <p style="text-align:center;font-size:22px;margin:2px 0 8px">a : b = <span class="fraction g"><span class="num">a</span><span class="den">b</span></span></p>
+        <div class="ex">2 : 5 = <span class="fraction g"><span class="num">2</span><span class="den">5</span></span> ; &nbsp; 7 : 10 = <span class="fraction g"><span class="num">7</span><span class="den">10</span></span> — правильные дроби, они &lt; 1.</div>
+      </div>
+
+      <!-- 3. КАКУЮ ЧАСТЬ ОДНО ЧИСЛО ОТ ДРУГОГО -->
+      <div class="mini" style="--c:#d81e3c">
+        <h2><span class="ico">🔍</span>Какую часть одно число составляет от другого</h2>
+        <p>Надо <b>первое число разделить на второе</b>:</p>
+        <p style="text-align:center;font-size:20px;margin:2px 0 8px">a от b → a : b = <span class="fraction r"><span class="num">a</span><span class="den">b</span></span></p>
+        <div class="ex">3 от 20 → 3 : 20 = <span class="fraction r"><span class="num">3</span><span class="den">20</span></span> ; &nbsp; 13 от 25 = <span class="fraction r"><span class="num">13</span><span class="den">25</span></span>.</div>
+      </div>
+
+      <!-- 4. НЕСКОЛЬКО ДОЛЕЙ ЦЕЛОГО -->
+      <div class="mini" style="--c:#b07908">
+        <h2><span class="ico">🍰</span>Как найти несколько долей целого</h2>
+        <p>Чтобы найти <span class="fraction"><span class="num">m</span><span class="den">n</span></span> от числа: делим число на <b>знаменатель</b> и умножаем на <b>числитель</b>:</p>
+        <p style="text-align:center;font-size:20px;margin:2px 0 8px">число : n · m</p>
+        <div class="ex"><span class="fraction"><span class="num">2</span><span class="den">3</span></span> от 18 = 18 : 3 · 2 = <b>12</b>. &nbsp; <span class="fraction"><span class="num">1</span><span class="den">4</span></span> от 20 = 20 : 4 · 1 = <b>5</b>.</div>
+      </div>
+
+      <!-- 5. ЦЕЛОЕ ПО ЕГО ЧАСТИ -->
+      <div class="mini" style="--c:#6a4c93">
+        <h2><span class="ico">🧺</span>Как найти целое по его части</h2>
+        <p>Значение части делим на <b>числитель</b> и умножаем на <b>знаменатель</b> (обратный ход):</p>
+        <p style="text-align:center;font-size:20px;margin:2px 0 8px">значение : m · n</p>
+        <div class="ex">12 — это <span class="fraction"><span class="num">2</span><span class="den">3</span></span> целого → 12 : 2 · 3 = <b>18</b>.<br>
+        Если известна <span class="fraction"><span class="num">1</span><span class="den">n</span></span>: просто · n. &nbsp; 5 — это <span class="fraction"><span class="num">1</span><span class="den">4</span></span> → 5 · 4 = <b>20</b>.</div>
+      </div>
+
+      <!-- 6. СРАВНЕНИЕ ДРОБЕЙ -->
+      <div class="mini" style="--c:#0f8a8a">
+        <h2><span class="ico">⚖️</span>Как сравнить дроби</h2>
+        <p>• <b>Знаменатели одинаковые</b> → больше та, у которой числитель больше:<br>
+        <span class="fraction"><span class="num">3</span><span class="den">7</span></span> &lt; <span class="fraction"><span class="num">5</span><span class="den">7</span></span></p>
+        <p>• <b>Числители одинаковые</b> → больше та, у которой знаменатель <b>меньше</b> (куски крупнее):<br>
+        <span class="fraction"><span class="num">3</span><span class="den">5</span></span> &gt; <span class="fraction"><span class="num">3</span><span class="den">8</span></span></p>
+        <div class="ex">Правильная дробь &lt; 1. &nbsp; <span class="fraction"><span class="num">5</span><span class="den">10</span></span> = <span class="fraction"><span class="num">1</span><span class="den">2</span></span> — половина: удобно сравнивать с ней!</div>
+      </div>
+
+    </div>
+
+    <div class="total">
+      <span>ГЛАВНОЕ:</span>
+      <span>a : b = <span class="fraction"><span class="num">a</span><span class="den">b</span></span></span>
+      <span>a от b = a : b</span>
+      <span><span class="fraction"><span class="num">m</span><span class="den">n</span></span> от x = x : n · m</span>
+      <span>целое: значение : m · n</span>
+    </div>
+  </div>
+
+  <footer>Памятку можно распечатать и вклеить в тетрадь 📓</footer>
+</div>
+</body>
+</html>
